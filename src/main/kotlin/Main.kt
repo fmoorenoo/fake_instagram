@@ -116,7 +116,7 @@ fun App() {
                     .padding(start = 16.dp),
                 horizontalAlignment = Alignment.Start,
             ) {
-                Text(text = "Sugerencias", fontSize = 18.sp, modifier = Modifier.padding(top = 14.dp, bottom = 13.dp), fontWeight = FontWeight.Bold)
+                Text(text = "Sugerencias", fontSize = 18.sp, modifier = Modifier.padding(top = 14.dp, bottom = 26.dp), fontWeight = FontWeight.Bold)
 
                 // SUGERENCIA DE PERSONAS
                 Column(
