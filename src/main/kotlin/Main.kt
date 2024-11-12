@@ -10,27 +10,30 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 
 @Composable
 fun App() {
-    Column {
-        Row(modifier = Modifier.padding(10.dp) .fillMaxWidth()) {
-            Text(
-                text = "Instagram",
-            )
-        }
-        Row(modifier = Modifier.padding(10.dp) .fillMaxWidth()) {
+    Column(modifier = Modifier.padding(16.dp)) {
+        Text(text = "Instagram", fontSize = 30.sp)
+
+        Text(text = "Historias", fontSize = 18.sp, modifier = Modifier.padding(top = 8.dp))
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            modifier = Modifier.fillMaxWidth().padding(top = 15.dp, bottom = 15.dp)
+        ) {
             users.forEach { user ->
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
-                    modifier = Modifier.width(80.dp)
+                    modifier = Modifier.width(80.dp),
                 ) {
                     Image(
                         modifier = Modifier
                             .size(80.dp)
-                            .padding(5.dp)
+                            .border(1.dp, Color.Gray, CircleShape)
+                            .padding(4.dp)
                             .clip(CircleShape),
                         painter = painterResource(resourcePath = user.image),
                         contentDescription = "Foto de ${user.name}"
@@ -43,12 +46,23 @@ fun App() {
                 }
             }
         }
+
+
+        Row(modifier = Modifier.fillMaxWidth()) {
+            Column() {
+                Text(text = "Publicaciones", fontSize = 18.sp, modifier = Modifier.padding(top = 16.dp))
+            }
+        }
     }
 }
 
 
+
 fun main() = application {
-    Window(onCloseRequest = ::exitApplication) {
+    Window(
+        onCloseRequest = ::exitApplication,
+        title = "Instagram"
+    ) {
         App()
     }
 }
