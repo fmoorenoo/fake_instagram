@@ -3,15 +3,14 @@ data class User(val name: String, val image: String){}
 data class Post(val image: String, val img_autor: String, val autor: String, val description: String){}
 
 val users = listOf<User>(
-    User("User1", "user1.jpeg"),
-    User("User2", "user2.jpeg"),
-    User("User3", "user3.jpeg"),
-    User("User4", "user4.jpeg"),
-    User("User5", "user5.jpeg"),
-    User("User6", "user6.jpeg")
+    User("unai_perez", "user1.jpg"),
+    User("amaro_morales", "user2.jpg"),
+    User("simon_gonzález", "user3.jpg"),
+    User("iriemdaluz", "user4.jpg"),
+    User("fer", "user5.jpg"),
+    User("Messi", "user6.jpg")
 )
 
 val posts = listOf<Post>(
-    Post("post1.jpeg", "autor1.jpeg", "feer._mm", "Hola, mi primera publicación"),
-    Post("post2.jpeg", "autor2.jpeg", "Messi", "El MVC está sobrevalorado."),
+    Post("post1.jpeg", "autor1.jpg", "Messi", "El MVC está sobrevalorado."),
 )
