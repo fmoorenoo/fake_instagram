@@ -15,10 +15,10 @@ val users = listOf<User>(
 )
 
 val posts = listOf<Post>(
-    Post("post1.jpg", "autor1.jpg", "Messi", "Odio a Cristiano Ronaldo, pero odio más AndroidStudio. #kotlin #futbol"),
-    Post("post1.jpg", "autor1.jpg", "Messi", "Odio a Cristiano Ronaldo, pero odio más AndroidStudio. #kotlin #futbol"),
-    Post("post1.jpg", "autor1.jpg", "Messi", "Odio a Cristiano Ronaldo, pero odio más AndroidStudio. #kotlin #futbol"),
-    Post("post1.jpg", "autor1.jpg", "Messi", "Odio a Cristiano Ronaldo, pero odio más AndroidStudio. #kotlin #futbol"),
+    Post("post1.jpg", "autor1.jpg", "messi", "Odio a Cristiano Ronaldo, pero odio más AndroidStudio. #kotlin #futbol"),
+    Post("post1.jpg", "autor1.jpg", "messi", "Odio a Cristiano Ronaldo, pero odio más AndroidStudio. #kotlin #futbol"),
+    Post("post1.jpg", "autor1.jpg", "messi", "Odio a Cristiano Ronaldo, pero odio más AndroidStudio. #kotlin #futbol"),
+    Post("post1.jpg", "autor1.jpg", "messi", "Odio a Cristiano Ronaldo, pero odio más AndroidStudio. #kotlin #futbol"),
 )
 
 val suggestions = listOf<Suggestion>(
