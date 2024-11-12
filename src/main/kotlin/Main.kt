@@ -36,7 +36,7 @@ fun App() {
                             .border(1.dp, Color.Gray, CircleShape)
                             .padding(4.dp)
                             .clip(CircleShape),
-                        painter = painterResource(resourcePath = user.image),
+                        painter = painterResource(resourcePath = "user_image/" + user.image),
                         contentDescription = "Foto de ${user.name}"
                     )
                     Text(
@@ -52,33 +52,46 @@ fun App() {
         Row(modifier = Modifier.fillMaxWidth()) {
             Column() {
                 Text(text = "Publicaciones", fontSize = 18.sp, modifier = Modifier.padding(top = 16.dp))
-                Column(modifier = Modifier.padding(top = 8.dp).width(250.dp)) {
+                posts.forEach { post ->
+                    Column(modifier = Modifier.padding(top = 8.dp).width(250.dp)) {
                         Card(
                             shape = RoundedCornerShape(8.dp),
-                            modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp)
+                            modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp),
+                            backgroundColor = Color.LightGray,
                         ) {
                             Column(modifier = Modifier.padding(16.dp)) {
-                                Text(text = "Fotos")
-                                Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(top = 8.dp)) {
+                                Image(
+                                    modifier = Modifier
+                                        .size(170.dp)
+                                        .clip(RoundedCornerShape(8.dp)),
+                                    painter = painterResource(resourcePath = "post_image/" + post.image),
+                                    contentDescription = "Foto",
+                                    alignment = Alignment.CenterStart
+                                )
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    modifier = Modifier.padding(top = 8.dp)
+                                ) {
                                     Image(
                                         modifier = Modifier
                                             .size(55.dp)
                                             .clip(CircleShape),
-                                        painter = painterResource(resourcePath = "user1.jpeg"),
+                                        painter = painterResource(resourcePath = "post_image/" + post.image),
                                         contentDescription = "Foto"
                                     )
-                                    Text(text = "Autor", modifier = Modifier.padding(start = 8.dp))
+                                    Text(text = post.autor, modifier = Modifier.padding(start = 8.dp))
                                 }
-                                Text(text = "Descripción", modifier = Modifier.padding(top = 4.dp)
+                                Text(
+                                    text = post.description, modifier = Modifier.padding(top = 4.dp)
                                 )
                             }
                         }
+                    }
                 }
             }
         }
     }
 }
-
 
 
 fun main() = application {
