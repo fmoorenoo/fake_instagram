@@ -1,4 +1,5 @@
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -67,19 +68,19 @@ fun App() {
                     items(posts) { post ->
                         Card(
                             shape = RoundedCornerShape(12.dp),
-                            backgroundColor = Color(0xFFF5F5F5),
+                            backgroundColor = Color(0xFFF0F0F0),
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(vertical = 10.dp)
+                                .padding(vertical = 20.dp)
                                 .width(280.dp),
-                            elevation = 6.dp
+                            elevation = 8.dp
                         ) {
                             Column(
                                 modifier = Modifier.padding(16.dp)
                             ) {
                                 Image(
                                     modifier = Modifier
-                                        .size(200.dp)
+                                        .size(230.dp)
                                         .clip(RoundedCornerShape(8.dp))
                                         .align(Alignment.CenterHorizontally),
                                     painter = painterResource(resourcePath = "post_image/" + post.image),
@@ -91,16 +92,17 @@ fun App() {
                                 ) {
                                     Image(
                                         modifier = Modifier
-                                            .size(45.dp)
+                                            .size(50.dp)
                                             .clip(CircleShape),
                                         painter = painterResource(resourcePath = "post_image/" + post.img_autor),
                                         contentDescription = "Foto del autor"
                                     )
-                                    Text(text = post.autor, modifier = Modifier.padding(start = 8.dp))
+                                    Text(text = post.autor, modifier = Modifier.padding(start = 8.dp), fontWeight = FontWeight.Bold, fontSize = 20.sp)
                                 }
                                 Text(
                                     text = post.description,
-                                    modifier = Modifier.padding(top = 4.dp)
+                                    modifier = Modifier.padding(top = 4.dp),
+                                    fontSize = 17.sp
                                 )
                             }
                         }
@@ -112,7 +114,7 @@ fun App() {
                 modifier = Modifier
                     .weight(1f)
                     .padding(start = 16.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
+                horizontalAlignment = Alignment.Start,
             ) {
                 Text(text = "Sugerencias", fontSize = 18.sp, modifier = Modifier.padding(top = 14.dp, bottom = 13.dp), fontWeight = FontWeight.Bold)
 
@@ -120,6 +122,7 @@ fun App() {
                 Column(
                     modifier = Modifier
                         .border(1.dp, Color.LightGray, RoundedCornerShape(8.dp))
+                        .background(Color(0xFFF0F0F0))
                         .padding(18.dp)
                 ) {
                     Text(text = "Personas", fontSize = 16.sp, modifier = Modifier.padding(bottom = 4.dp))
@@ -130,23 +133,24 @@ fun App() {
                         ) {
                             Image(
                                 modifier = Modifier
-                                    .size(65.dp)
+                                    .size(60.dp)
                                     .clip(CircleShape),
                                 painter = painterResource(resourcePath = "suggestion_image/" + suggestion.image),
                                 contentDescription = "Foto del autor"
                             )
-                            Text(text = suggestion.name, modifier = Modifier.padding(start = 8.dp), fontSize = 25.sp)
+                            Text(text = suggestion.name, modifier = Modifier.padding(start = 8.dp), fontSize = 20.sp)
                         }
                     }
                 }
 
-                Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(30.dp))
 
 
                 // SUGERENCIA DE FOTOS
                 Column(
                     modifier = Modifier
                         .border(1.dp, Color.LightGray, RoundedCornerShape(8.dp))
+                        .background(Color(0xFFF0F0F0))
                         .padding(18.dp)
                 ) {
                     Text(text = "Fotos", fontSize = 16.sp, modifier = Modifier.padding(bottom = 4.dp))
