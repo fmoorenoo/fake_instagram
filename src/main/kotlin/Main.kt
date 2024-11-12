@@ -16,6 +16,8 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 
 @Composable
 fun App() {
@@ -54,50 +56,47 @@ fun App() {
             }
         }
 
-        Row(modifier = Modifier.fillMaxWidth()) {
-            Column {
-                Text(text = "Publicaciones", fontSize = 18.sp, modifier = Modifier.padding(top = 16.dp))
-                posts.forEach { post ->
-                    Column(modifier = Modifier.padding(top = 8.dp).width(280.dp)) {
-                        Card(
-                            shape = RoundedCornerShape(12.dp),
-                            backgroundColor = Color(0xFFF5F5F5),
+        Text(text = "Publicaciones", fontSize = 18.sp, modifier = Modifier.padding(top = 16.dp))
+
+        LazyColumn(modifier = Modifier.padding(top = 8.dp).width(280.dp)) {
+            items(posts) { post ->
+                Card(
+                    shape = RoundedCornerShape(12.dp),
+                    backgroundColor = Color(0xFFF5F5F5),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 10.dp)
+                        .width(280.dp),
+                    elevation = 6.dp
+                ) {
+                    Column(
+                        modifier = Modifier.padding(16.dp)
+                    ) {
+                        Image(
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(vertical = 10.dp)
-                                .width(280.dp),
-                            elevation = 6.dp
+                                .size(200.dp)
+                                .clip(RoundedCornerShape(8.dp))
+                                .align(Alignment.CenterHorizontally),
+                            painter = painterResource(resourcePath = "post_image/" + post.image),
+                            contentDescription = "Foto publicada"
+                        )
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.padding(vertical = 10.dp)
                         ) {
-                            Column(
-                                modifier = Modifier.padding(16.dp)
-                            ) {
-                                Image(
-                                    modifier = Modifier
-                                        .size(200.dp)
-                                        .clip(RoundedCornerShape(8.dp))
-                                        .align(Alignment.CenterHorizontally),
-                                    painter = painterResource(resourcePath = "post_image/" + post.image),
-                                    contentDescription = "Foto publicada"
-                                )
-                                Row(
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    modifier = Modifier.padding(vertical = 10.dp)
-                                ) {
-                                    Image(
-                                        modifier = Modifier
-                                            .size(45.dp)
-                                            .clip(CircleShape),
-                                        painter = painterResource(resourcePath = "post_image/" + post.img_autor),
-                                        contentDescription = "Foto del autor"
-                                    )
-                                    Text(text = post.autor, modifier = Modifier.padding(start = 8.dp))
-                                }
-                                Text(
-                                    text = post.description,
-                                    modifier = Modifier.padding(top = 4.dp)
-                                )
-                            }
+                            Image(
+                                modifier = Modifier
+                                    .size(45.dp)
+                                    .clip(CircleShape),
+                                painter = painterResource(resourcePath = "post_image/" + post.img_autor),
+                                contentDescription = "Foto del autor"
+                            )
+                            Text(text = post.autor, modifier = Modifier.padding(start = 8.dp))
                         }
+                        Text(
+                            text = post.description,
+                            modifier = Modifier.padding(top = 4.dp)
+                        )
                     }
                 }
             }
