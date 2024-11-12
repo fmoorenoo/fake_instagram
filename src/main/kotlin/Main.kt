@@ -59,7 +59,7 @@ fun App() {
 
         Row(modifier = Modifier.fillMaxWidth()) {
             Column(modifier = Modifier.weight(1f)) {
-                Text(text = "Publicaciones", fontSize = 18.sp, modifier = Modifier.padding(top = 16.dp))
+                Text(text = "Publicaciones", fontSize = 18.sp, modifier = Modifier.padding(top = 16.dp), fontWeight = FontWeight.Bold)
 
                 LazyColumn(modifier = Modifier.padding(top = 8.dp).width(280.dp)) {
                     items(posts) { post ->
@@ -111,7 +111,23 @@ fun App() {
                     .weight(1f)
                     .padding(start = 16.dp)
             ) {
-                Text(text = "Sugerencias", fontSize = 18.sp, modifier = Modifier.padding(bottom = 8.dp))
+                Text(text = "Sugerencias", fontSize = 18.sp, modifier = Modifier.padding(top = 14.dp, bottom = 13.dp), fontWeight = FontWeight.Bold)
+                Column(modifier = Modifier.border(1.dp, Color.LightGray).padding(18.dp)) {
+                    Text(text = "Personas", fontSize = 16.sp, modifier = Modifier.padding(bottom = 4.dp))
+                    suggestions.forEach { suggestion ->
+                        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(vertical = 4.dp)) {
+                            Image(
+                                modifier = Modifier
+                                    .size(65.dp)
+                                    .clip(CircleShape),
+                                painter = painterResource(resourcePath = "suggestion_image/" + suggestion.image),
+                                contentDescription = "Foto del autor"
+                            )
+                            Text(text = suggestion.name, modifier = Modifier.padding(start = 8.dp), fontSize = 25.sp)
+                        }
+                    }
+
+                }
             }
         }
     }
