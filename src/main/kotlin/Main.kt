@@ -25,6 +25,7 @@ fun App() {
     Column(modifier = Modifier.padding(vertical = 20.dp, horizontal = 40.dp)) {
         Text(text = "Instagram", fontSize = 30.sp, fontWeight = FontWeight.Bold)
 
+        // HISTORIAS
         Text(text = "Historias", fontSize = 18.sp, modifier = Modifier.padding(top = 8.dp))
         Row(
             horizontalArrangement = Arrangement.spacedBy(14.dp),
@@ -57,7 +58,8 @@ fun App() {
             }
         }
 
-        Row(modifier = Modifier.fillMaxWidth()) {
+        Row() {
+            // PUBLICACIONES
             Column(modifier = Modifier.weight(1f)) {
                 Text(text = "Publicaciones", fontSize = 18.sp, modifier = Modifier.padding(top = 16.dp), fontWeight = FontWeight.Bold)
 
@@ -105,19 +107,27 @@ fun App() {
                     }
                 }
             }
-
+            // SUGERENCIAS
             Column(
                 modifier = Modifier
                     .weight(1f)
-                    .padding(start = 16.dp)
+                    .padding(start = 16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(text = "Sugerencias", fontSize = 18.sp, modifier = Modifier.padding(top = 14.dp, bottom = 13.dp), fontWeight = FontWeight.Bold)
 
-                // Sugerencias de personas
-                Column(modifier = Modifier.border(1.dp, Color.LightGray).padding(18.dp)) {
+                // SUGERENCIA DE PERSONAS
+                Column(
+                    modifier = Modifier
+                        .border(1.dp, Color.LightGray, RoundedCornerShape(8.dp))
+                        .padding(18.dp)
+                ) {
                     Text(text = "Personas", fontSize = 16.sp, modifier = Modifier.padding(bottom = 4.dp))
                     users_suggestions.forEach { suggestion ->
-                        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(vertical = 4.dp)) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.padding(vertical = 4.dp)
+                        ) {
                             Image(
                                 modifier = Modifier
                                     .size(65.dp)
@@ -130,22 +140,53 @@ fun App() {
                     }
                 }
 
+                Spacer(modifier = Modifier.height(20.dp))
+
+
+                // SUGERENCIA DE FOTOS
                 Column(
                     modifier = Modifier
-                        .border(1.dp, Color.LightGray)
+                        .border(1.dp, Color.LightGray, RoundedCornerShape(8.dp))
                         .padding(18.dp)
                 ) {
                     Text(text = "Fotos", fontSize = 16.sp, modifier = Modifier.padding(bottom = 4.dp))
-                    Column {
-                        photo_suggestions.forEach { suggestion ->
-                            Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(vertical = 4.dp)) {
+
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(14.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.fillMaxWidth().padding(bottom = 10.dp)
+                    ) {
+                        repeat(3) { numFoto ->
+                            val suggestion = photo_suggestions[numFoto]
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                modifier = Modifier.width(80.dp)
+                            ) {
                                 Image(
-                                    modifier = Modifier
-                                        .size(65.dp),
+                                    modifier = Modifier.size(65.dp),
                                     painter = painterResource(resourcePath = "suggestion_image/" + suggestion.image),
                                     contentDescription = "Foto"
                                 )
-                                Text(text = suggestion.name, modifier = Modifier.padding(start = 8.dp), fontSize = 25.sp)
+                            }
+                        }
+                    }
+
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(14.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        repeat(3) { numFoto ->
+                            val suggestion = photo_suggestions[numFoto + 3]
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                modifier = Modifier.width(80.dp)
+                            ) {
+                                Image(
+                                    modifier = Modifier.size(65.dp),
+                                    painter = painterResource(resourcePath = "suggestion_image/" + suggestion.image),
+                                    contentDescription = "Foto"
+                                )
                             }
                         }
                     }
@@ -155,12 +196,11 @@ fun App() {
     }
 }
 
-
 fun main() = application {
     Window(
         onCloseRequest = ::exitApplication,
         title = "Instagram",
-        state = rememberWindowState(size = DpSize(800.dp, 1200.dp))
+        state = rememberWindowState(size = DpSize(750.dp, 1200.dp))
     ) {
         App()
     }
