@@ -22,8 +22,8 @@ val posts = listOf<Post>(
 )
 
 val suggestions = listOf<Suggestion>(
-    Suggestion("unai_perez", "user1.jpg"),
-    Suggestion("amaro_morales", "user2.jpg"),
-    Suggestion("simon_gonzález", "user3.jpg"),
-    Suggestion("iriemdaluz", "user4.jpg")
+    Suggestion("cristiano", "user1.jpg"),
+    Suggestion("thegrefg", "user2.jpg"),
+    Suggestion("fortnitepro_2009", "user3.jpg"),
+    Suggestion("shrek_official", "user4.jpg")
 )
