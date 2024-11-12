@@ -112,9 +112,11 @@ fun App() {
                     .padding(start = 16.dp)
             ) {
                 Text(text = "Sugerencias", fontSize = 18.sp, modifier = Modifier.padding(top = 14.dp, bottom = 13.dp), fontWeight = FontWeight.Bold)
+
+                // Sugerencias de personas
                 Column(modifier = Modifier.border(1.dp, Color.LightGray).padding(18.dp)) {
                     Text(text = "Personas", fontSize = 16.sp, modifier = Modifier.padding(bottom = 4.dp))
-                    suggestions.forEach { suggestion ->
+                    users_suggestions.forEach { suggestion ->
                         Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(vertical = 4.dp)) {
                             Image(
                                 modifier = Modifier
@@ -126,7 +128,27 @@ fun App() {
                             Text(text = suggestion.name, modifier = Modifier.padding(start = 8.dp), fontSize = 25.sp)
                         }
                     }
+                }
 
+                Column(
+                    modifier = Modifier
+                        .border(1.dp, Color.LightGray)
+                        .padding(18.dp)
+                ) {
+                    Text(text = "Fotos", fontSize = 16.sp, modifier = Modifier.padding(bottom = 4.dp))
+                    Column {
+                        photo_suggestions.forEach { suggestion ->
+                            Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(vertical = 4.dp)) {
+                                Image(
+                                    modifier = Modifier
+                                        .size(65.dp),
+                                    painter = painterResource(resourcePath = "suggestion_image/" + suggestion.image),
+                                    contentDescription = "Foto"
+                                )
+                                Text(text = suggestion.name, modifier = Modifier.padding(start = 8.dp), fontSize = 25.sp)
+                            }
+                        }
+                    }
                 }
             }
         }
