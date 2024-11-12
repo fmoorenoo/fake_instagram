@@ -22,10 +22,14 @@ fun App() {
 
         Text(text = "Historias", fontSize = 18.sp, modifier = Modifier.padding(top = 8.dp))
         Row(
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(14.dp),
             modifier = Modifier.fillMaxWidth().padding(top = 15.dp, bottom = 15.dp)
         ) {
             users.forEach { user ->
+                var username = user.name
+                if ((user.name).length > 10) {
+                    username = username.substring(0, 8) + "..."
+                }
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier.width(80.dp),
@@ -40,7 +44,7 @@ fun App() {
                         contentDescription = "Foto de ${user.name}"
                     )
                     Text(
-                        text = user.name,
+                        text = username,
                         color = Color.Black,
                         modifier = Modifier.padding(top = 5.dp)
                     )
@@ -53,16 +57,18 @@ fun App() {
             Column() {
                 Text(text = "Publicaciones", fontSize = 18.sp, modifier = Modifier.padding(top = 16.dp))
                 posts.forEach { post ->
-                    Column(modifier = Modifier.padding(top = 8.dp).width(250.dp)) {
+                    Column(modifier = Modifier.padding(top = 8.dp).width(400.dp)) {
                         Card(
                             shape = RoundedCornerShape(8.dp),
-                            modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp),
+                            modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp).width(350.dp),
                             backgroundColor = Color.LightGray,
+
                         ) {
                             Column(modifier = Modifier.padding(16.dp)) {
+
                                 Image(
                                     modifier = Modifier
-                                        .size(170.dp)
+                                        .size(200.dp)
                                         .clip(RoundedCornerShape(8.dp)),
                                     painter = painterResource(resourcePath = "post_image/" + post.image),
                                     contentDescription = "Foto",
@@ -74,7 +80,7 @@ fun App() {
                                 ) {
                                     Image(
                                         modifier = Modifier
-                                            .size(55.dp)
+                                            .size(45.dp)
                                             .clip(CircleShape),
                                         painter = painterResource(resourcePath = "post_image/" + post.image),
                                         contentDescription = "Foto"
