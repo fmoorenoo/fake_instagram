@@ -19,12 +19,23 @@ import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.platform.Font
+
+
+val style1 = TextStyle(
+    fontSize = 30.sp,
+    fontWeight = FontWeight.Normal,
+    fontFamily = FontFamily(Font("fonts/fuente1.ttf", FontWeight.Normal)),
+    color = Color.Black
+)
 
 @Composable
 fun App() {
     Column(modifier = Modifier.padding(vertical = 20.dp, horizontal = 40.dp)) {
-        Text(text = "Instagram", fontSize = 30.sp, fontWeight = FontWeight.Bold)
+        Text(text = "Instagram", fontSize = 38.sp, fontWeight = FontWeight.Bold, style = style1)
 
         // HISTORIAS
         Text(text = "Historias", fontSize = 18.sp, modifier = Modifier.padding(top = 8.dp))
@@ -109,6 +120,7 @@ fun App() {
                     }
                 }
             }
+
             // SUGERENCIAS
             Column(
                 modifier = Modifier
