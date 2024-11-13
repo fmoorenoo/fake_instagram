@@ -11,8 +11,6 @@ Este proyecto consta de 2 archivos:
 - `Main.kt`, desde el cual se genera la interfaz.
 - `Model.kt`, que contiene los diferentes datos de usuarios.
 
-Las publicaciones se encuentran en un `LazyColumn`, para que sea posible ver todas las publicaciones deslizando.
-
 <br>
 
 ## 📷 Imágenes
