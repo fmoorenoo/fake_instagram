@@ -145,29 +145,20 @@ fun App() {
 
                 Spacer(modifier = Modifier.height(30.dp))
 
-
                 // SUGERENCIA DE FOTOS
-                Column(
-                    modifier = Modifier
-                        .border(1.dp, Color.LightGray, RoundedCornerShape(8.dp))
-                        .background(Color(0xFFF0F0F0))
-                        .padding(18.dp)
-                ) {
+                Column(modifier = Modifier.border(1.dp, Color.LightGray, RoundedCornerShape(8.dp)).background(Color(0xFFF0F0F0)) .padding(18.dp).width(250.dp)) {
                     Text(text = "Fotos", fontSize = 16.sp, modifier = Modifier.padding(bottom = 4.dp))
-
+                    // FILA DE 3 FOTOS
                     Row(
-                        horizontalArrangement = Arrangement.spacedBy(14.dp),
+                        horizontalArrangement = Arrangement.spacedBy(5.dp),
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth().padding(bottom = 10.dp)
+                        modifier = Modifier.fillMaxWidth()
                     ) {
                         repeat(3) { numFoto ->
                             val suggestion = photo_suggestions[numFoto]
-                            Column(
-                                horizontalAlignment = Alignment.CenterHorizontally,
-                                modifier = Modifier.width(80.dp)
-                            ) {
+                            Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.width(80.dp)) {
                                 Image(
-                                    modifier = Modifier.size(65.dp),
+                                    modifier = Modifier.size(85.dp),
                                     painter = painterResource(resourcePath = "suggestion_image/" + suggestion.image),
                                     contentDescription = "Foto"
                                 )
@@ -175,19 +166,35 @@ fun App() {
                         }
                     }
 
+                    // FILA DE 3 FOTOS
                     Row(
-                        horizontalArrangement = Arrangement.spacedBy(14.dp),
+                        horizontalArrangement = Arrangement.spacedBy(5.dp),
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier.fillMaxWidth()
                     ) {
                         repeat(3) { numFoto ->
                             val suggestion = photo_suggestions[numFoto + 3]
-                            Column(
-                                horizontalAlignment = Alignment.CenterHorizontally,
-                                modifier = Modifier.width(80.dp)
-                            ) {
+                            Column(horizontalAlignment = Alignment.CenterHorizontally,  modifier = Modifier.width(80.dp)) {
                                 Image(
-                                    modifier = Modifier.size(65.dp),
+                                    modifier = Modifier.size(85.dp),
+                                    painter = painterResource(resourcePath = "suggestion_image/" + suggestion.image),
+                                    contentDescription = "Foto"
+                                )
+                            }
+                        }
+                    }
+
+                    // FILA DE 3 FOTOS
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(5.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        repeat(3) { numFoto ->
+                            val suggestion = photo_suggestions[numFoto + 6]
+                            Column(horizontalAlignment = Alignment.CenterHorizontally,  modifier = Modifier.width(80.dp)) {
+                                Image(
+                                    modifier = Modifier.size(85.dp),
                                     painter = painterResource(resourcePath = "suggestion_image/" + suggestion.image),
                                     contentDescription = "Foto"
                                 )
@@ -199,6 +206,7 @@ fun App() {
         }
     }
 }
+
 
 fun main() = application {
     Window(
