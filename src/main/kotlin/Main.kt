@@ -35,7 +35,7 @@ val style2 = TextStyle(
 @Composable
 fun App() {
     Column(modifier = Modifier.padding(vertical = 20.dp, horizontal = 40.dp)) {
-        Text(text = "Instagram", fontSize = 38.sp, fontWeight = FontWeight.Bold, style = style1)
+        Text(text = "Fake Instagram", fontSize = 38.sp, fontWeight = FontWeight.Bold, style = style1)
 
         // HISTORIAS
         Text(text = "Historias", fontSize = 24.sp, modifier = Modifier.padding(top = 15.dp), style = style2)
