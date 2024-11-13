@@ -16,9 +16,9 @@ val users = listOf<User>(
 
 val posts = listOf<Post>(
     Post("post2.jpg", "autor2.jpg", "feer.mm_", "Mi nueva casa! :D  #ahorros #emprendimiento"),
-    Post("post3.jpg", "autor3.jpg", "elonmusk", "'Tesla guisante' coming soon... #tesla #future"),
     Post("post1.jpg", "autor1.jpg", "messi", "Odio a Cristiano Ronaldo, pero odio más AndroidStudio.\n#kotlin #futbol"),
-    Post("post4.jpg", "autor4.jpg", "unai123", "Actualización de mi físico. #mrolympia"),
+//    Post("post3.jpg", "autor3.jpg", "elonmusk", "'Tesla guisante' coming soon... #tesla #future"),
+//    Post("post4.jpg", "autor4.jpg", "unai123", "Actualización de mi físico. #mrolympia"),
 )
 
 val users_suggestions = listOf<Suggestion>(

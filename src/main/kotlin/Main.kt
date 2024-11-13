@@ -75,14 +75,14 @@ fun App() {
             Column(modifier = Modifier.weight(1f)) {
                 Text(text = "Publicaciones", fontSize = 24.sp, modifier = Modifier.padding(top = 16.dp), style = style2)
 
-                LazyColumn(modifier = Modifier.padding(top = 8.dp).width(280.dp)) {
-                    items(posts) { post ->
+                Column(modifier = Modifier.padding(top = 8.dp).width(280.dp)) {
+                    posts.forEach { post ->
                         Card(
                             shape = RoundedCornerShape(12.dp),
                             backgroundColor = Color(0xFFF0F0F0),
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(vertical = 20.dp)
+                                .padding(vertical = 10.dp)
                                 .width(280.dp),
                             elevation = 8.dp
                         ) {
@@ -91,7 +91,7 @@ fun App() {
                             ) {
                                 Image(
                                     modifier = Modifier
-                                        .size(230.dp)
+                                        .size(180.dp)
                                         .clip(RoundedCornerShape(8.dp))
                                         .align(Alignment.CenterHorizontally),
                                     painter = painterResource(resourcePath = "post_image/" + post.image),
