@@ -25,12 +25,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.platform.Font
 
 
-val style1 = TextStyle(
-    fontSize = 30.sp,
-    fontWeight = FontWeight.Normal,
-    fontFamily = FontFamily(Font("fonts/fuente1.ttf", FontWeight.Normal)),
-    color = Color.Black
+val style1 = TextStyle(fontFamily = FontFamily(Font("fonts/fuente1.ttf", FontWeight.Normal)))
+val style2 = TextStyle(
+    fontWeight = FontWeight(600),
+    fontFamily = FontFamily(Font("fonts/fuente2.ttf", FontWeight.Normal))
 )
+
 
 @Composable
 fun App() {
@@ -38,7 +38,7 @@ fun App() {
         Text(text = "Instagram", fontSize = 38.sp, fontWeight = FontWeight.Bold, style = style1)
 
         // HISTORIAS
-        Text(text = "Historias", fontSize = 18.sp, modifier = Modifier.padding(top = 8.dp))
+        Text(text = "Historias", fontSize = 24.sp, modifier = Modifier.padding(top = 15.dp), style = style2)
         Row(
             horizontalArrangement = Arrangement.spacedBy(14.dp),
             modifier = Modifier.fillMaxWidth().padding(top = 15.dp, bottom = 15.dp)
@@ -73,7 +73,7 @@ fun App() {
         Row() {
             // PUBLICACIONES
             Column(modifier = Modifier.weight(1f)) {
-                Text(text = "Publicaciones", fontSize = 18.sp, modifier = Modifier.padding(top = 16.dp), fontWeight = FontWeight.Bold)
+                Text(text = "Publicaciones", fontSize = 24.sp, modifier = Modifier.padding(top = 16.dp), style = style2)
 
                 LazyColumn(modifier = Modifier.padding(top = 8.dp).width(280.dp)) {
                     items(posts) { post ->
@@ -128,7 +128,7 @@ fun App() {
                     .padding(start = 16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                Text(text = "Sugerencias", fontSize = 18.sp, modifier = Modifier.padding(top = 14.dp, bottom = 26.dp), fontWeight = FontWeight.Bold)
+                Text(text = "- Sugerencias -", fontSize = 24.sp, modifier = Modifier.padding(top = 14.dp, bottom = 26.dp), style = style2, color = Color(0xFFa87dd3))
 
                 // SUGERENCIA DE PERSONAS
                 Column(
@@ -137,7 +137,7 @@ fun App() {
                         .background(Color(0xFFF0F0F0))
                         .padding(horizontal = 18.dp, vertical = 10.dp)
                 ) {
-                    Text(text = "Personas", modifier = Modifier.padding(bottom = 8.dp), fontSize = 25.sp)
+                    Text(text = "Personas", modifier = Modifier.padding(bottom = 12.dp), fontSize = 25.sp)
                     users_suggestions.forEach { suggestion ->
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
@@ -150,7 +150,7 @@ fun App() {
                                 painter = painterResource(resourcePath = "suggestion_image/" + suggestion.image),
                                 contentDescription = "Foto del autor"
                             )
-                            Text(text = suggestion.name, modifier = Modifier.padding(start = 8.dp), fontSize = 20.sp)
+                            Text(text = suggestion.name, modifier = Modifier.padding(start = 13.dp), fontSize = 20.sp, style = style2, color = Color(0xFF1f355a))
                         }
                     }
                 }
@@ -159,7 +159,7 @@ fun App() {
 
                 // SUGERENCIA DE FOTOS
                 Column(modifier = Modifier.border(1.dp, Color.LightGray, RoundedCornerShape(8.dp)).background(Color(0xFFF0F0F0)) .padding(18.dp).width(250.dp)) {
-                    Text(text = "Fotos", modifier = Modifier.padding(bottom = 8.dp), fontSize = 25.sp)
+                    Text(text = "Fotos", modifier = Modifier.padding(bottom = 12.dp), fontSize = 25.sp)
                     // FILA DE 3 FOTOS
                     Row(
                         horizontalArrangement = Arrangement.spacedBy(5.dp),
