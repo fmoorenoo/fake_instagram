@@ -114,7 +114,7 @@ fun App() {
                 modifier = Modifier
                     .weight(1f)
                     .padding(start = 16.dp),
-                horizontalAlignment = Alignment.Start,
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(text = "Sugerencias", fontSize = 18.sp, modifier = Modifier.padding(top = 14.dp, bottom = 26.dp), fontWeight = FontWeight.Bold)
 
@@ -123,9 +123,9 @@ fun App() {
                     modifier = Modifier
                         .border(1.dp, Color.LightGray, RoundedCornerShape(8.dp))
                         .background(Color(0xFFF0F0F0))
-                        .padding(18.dp)
+                        .padding(horizontal = 18.dp, vertical = 10.dp)
                 ) {
-                    Text(text = "Personas", fontSize = 16.sp, modifier = Modifier.padding(bottom = 4.dp))
+                    Text(text = "Personas", modifier = Modifier.padding(bottom = 8.dp), fontSize = 25.sp)
                     users_suggestions.forEach { suggestion ->
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
@@ -147,7 +147,7 @@ fun App() {
 
                 // SUGERENCIA DE FOTOS
                 Column(modifier = Modifier.border(1.dp, Color.LightGray, RoundedCornerShape(8.dp)).background(Color(0xFFF0F0F0)) .padding(18.dp).width(250.dp)) {
-                    Text(text = "Fotos", fontSize = 16.sp, modifier = Modifier.padding(bottom = 4.dp))
+                    Text(text = "Fotos", modifier = Modifier.padding(bottom = 8.dp), fontSize = 25.sp)
                     // FILA DE 3 FOTOS
                     Row(
                         horizontalArrangement = Arrangement.spacedBy(5.dp),
